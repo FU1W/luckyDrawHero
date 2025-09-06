@@ -1,0 +1,369 @@
+syntax = "proto3";
+package proto;
+
+message AccountInfo {
+   string unick = 1;
+   int32 uface = 2;
+   int32 uvip = 3;
+   int32 isGuest = 4;
+}
+message ArrivedCharactor {
+   int32 worldId = 1;
+   CharactorInfo chInfo = 2;
+   CharactorTransform transform = 3;
+   int32 status = 4;
+}
+message BonuesItem {
+   int64 bonuesId = 1;
+   string bonuesDesic = 2;
+   int32 status = 3;
+   int32 typeId = 4;
+}
+message CharactorInfo {
+   string unick = 1;
+   int32 job = 2;
+   int32 sex = 3;
+   int32 charactorId = 4;
+}
+message CharactorTransform {
+   repeated float pos = 1 [packed = false];
+   repeated float eulerAngles = 2 [packed = false];
+}
+message DicGoodsItem {
+   int32 mainType = 1;
+   repeated GoodsItem Value = 2;
+}
+message GoodsItem {
+   int32 typeId = 1;
+   int32 num = 2;
+   bytes strengData = 3;
+}
+message MailMsgItem {
+   int32 status = 1;
+   string msgBody = 2;
+   int32 sendTime = 3;
+   int64 msgId = 4;
+}
+message PlayerInfo {
+   string unick = 1;
+   int32 hp = 2;
+   int32 exp = 3;
+   int32 mp = 4;
+   int32 umoney = 5;
+   int32 ucion = 6;
+   int32 usex = 7;
+   int32 hasBonues = 8;
+   int32 days = 9;
+   int32 loginBonues = 10;
+}
+message RankItem {
+   string unick = 1;
+   int32 value = 2;
+   int32 uface = 3;
+}
+message ReqEnterLogicServer {
+   int32 typeId = 1;
+   int32 zoneId = 2;
+   int32 instId = 3;
+}
+message ReqExchangeProduct {
+   int32 productId = 1;
+}
+message ReqExitLogicServer {
+   int32 quitReason = 1;
+}
+message ReqGuestLogin {
+   string guestKey = 1;
+   int32 channal = 2;
+}
+message ReqGuestUpgrade {
+   string uname = 1;
+   string upwd = 2;
+   string unick = 3;
+}
+message ReqNavInDir {
+   int32 dirx = 1;
+   int32 diry = 2;
+}
+message ReqNavToDst {
+   float x = 1;
+   float y = 2;
+   float z = 3;
+}
+message ReqNetHearbeatMsg {
+   string content = 1;
+}
+message ReqPlayerIsReady {
+   int32 reserve = 1;
+}
+message ReqPlayerOpt {
+   int32 optType = 1;
+   int32 v1 = 2;
+   int32 v2 = 3;
+   int32 v3 = 4;
+}
+message ReqPlayerSpawn {
+   int32 SpawnPoint = 1;
+}
+message ReqPullingBonuesList {
+   int32 typeId = 1;
+}
+message ReqPullingMailMsg {
+   int32 typeId = 1;
+}
+message ReqPullingPackData {
+   int32 typeId = 1;
+}
+message ReqPullingPlayerData {
+   int32 job = 1;
+}
+message ReqPullingRank {
+   int32 typeId = 1;
+}
+message ReqPullingTaskList {
+   int32 typeId = 1;
+}
+message ReqRecvBonues {
+   int64 bonuesId = 1;
+}
+message ReqRecvLoginBonues {
+   int32 type = 1;
+}
+message ReqRegisterUser {
+   string uname = 1;
+   string upwd = 2;
+   int32 channal = 3;
+}
+message ReqSelectPlayer {
+   int32 job = 1;
+   string uname = 2;
+   int32 usex = 3;
+   int32 charactorId = 4;
+}
+message ReqSitdown {
+   int32 seatId = 1;
+}
+message ReqStandup {
+   int32 reserve = 1;
+}
+message ReqStartBuff {
+   int32 buffId = 1;
+}
+message ReqStartSkill {
+   int32 skillId = 1;
+}
+message ReqTalkMsg {
+   int32 talkType = 1;
+   string msgBodyOrAudioUrl = 2;
+}
+message ReqTestGetGoods {
+   int32 typeId = 1;
+   int32 num = 2;
+}
+message ReqTestLogicCmdEcho {
+   string content = 1;
+}
+message ReqTestUpdateGooods {
+   int32 typeId = 1;
+   int32 num = 2;
+}
+message ReqUpdateMailMsg {
+   int64 mailMsgId = 1;
+   int32 status = 2;
+}
+message ReqUserLogin {
+   string uname = 1;
+   string upwd = 2;
+   string code = 3;
+}
+message ResEnterAOI {
+   repeated ArrivedCharactor charactors = 1;
+}
+message ResEnterLogicServer {
+   int32 status = 1;
+}
+message ResEnterRoom {
+   int32 roomId = 1;
+   int32 roomState = 2;
+   int32 roomInViewId = 3;
+}
+message ResExchangeProduct {
+   int32 status = 1;
+}
+message ResExitLogicServer {
+   int32 status = 1;
+}
+message ResGuestLogin {
+   int32 status = 1;
+   AccountInfo uinfo = 2;
+}
+message ResGuestUpgrade {
+   int32 status = 1;
+   AccountInfo uinfo = 2;
+}
+message ResLeaveAOI {
+   repeated int32 leavePlayers = 1 [packed = false];
+}
+message ResLostHp {
+   int32 seatOrWorldId = 1;
+   int32 lostHp = 2;
+}
+message ResNavInDir {
+   int32 worldId = 1;
+   int32 dirx = 2;
+   int32 diry = 3;
+   float speed = 4;
+}
+message ResNavToDst {
+   int32 worldId = 1;
+   float x = 2;
+   float y = 3;
+   float z = 4;
+   float speed = 5;
+}
+message ResNetHearbeatMsg {
+   string content = 1;
+}
+message ResPlayerEscape {
+   int32 seatId = 1;
+}
+message ResPlayerIsReady {
+   int32 status = 1;
+   int32 seatId = 2;
+}
+message ResPlayerOpt {
+   int32 status = 1;
+   int32 seatId = 2;
+   int32 optType = 3;
+   int32 v1 = 4;
+   int32 v2 = 5;
+   int32 v3 = 6;
+}
+message ResPlayerSpawn {
+   int32 status = 1;
+   int32 worldId = 2;
+}
+message ResPullingBonuesList {
+   int32 status = 1;
+   repeated BonuesItem bonues = 2;
+}
+message ResPullingMailMsg {
+   int32 status = 1;
+   repeated MailMsgItem mailMessages = 2;
+}
+message ResPullingPackData {
+   int32 status = 1;
+   repeated DicGoodsItem packGoods = 2;
+}
+message ResPullingPlayerData {
+   int32 status = 1;
+   PlayerInfo pInfo = 2;
+   int32 isReConnectGame = 3;
+}
+message ResPullingRank {
+   int32 status = 1;
+   int32 selfIndex = 2;
+   repeated RankItem ranks = 3;
+}
+message ResPullingTaskList {
+   int32 status = 1;
+   repeated TaskItem tasks = 2;
+}
+message ResReconnRoom {
+   ResEnterRoom room = 1;
+   ResSitdown selfSitdown = 2;
+   repeated ResUserArrivedSeat seats = 3;
+}
+message ResRecvBonues {
+   int32 status = 1;
+   int32 typeId = 2;
+   int32 b1 = 3;
+   int32 b2 = 4;
+   int32 b3 = 5;
+   int32 b4 = 6;
+   int32 b5 = 7;
+}
+message ResRecvLoginBonues {
+   int32 status = 1;
+   int32 num = 2;
+}
+message ResRegisterUser {
+   int32 status = 1;
+   string errorStr = 2;
+}
+message ResRoundCheckOut {
+   int32 reserve = 1;
+}
+message ResRoundClear {
+   int32 reserve = 1;
+}
+message ResRoundReady {
+   int32 roundTime = 1;
+}
+message ResRoundStarted {
+   int32 reserve = 1;
+}
+message ResSelectPlayer {
+   int32 status = 1;
+   PlayerInfo pInfo = 2;
+   int32 isReConnectGame = 3;
+}
+message ResSitdown {
+   int32 status = 1;
+   int32 seatId = 2;
+}
+message ResStandup {
+   int32 status = 1;
+}
+message ResStartBuff {
+   int32 seatOrWorldId = 1;
+   int32 buffId = 2;
+}
+message ResStartSkill {
+   int32 seatOrWorldId = 1;
+   int32 skillId = 2;
+}
+message ResSyncCharactorStatus {
+   int32 worldId = 1;
+   CharactorTransform transform = 2;
+   SyncStatusData statusData = 3;
+}
+message ResTalkMsg {
+   int32 roomInViewId = 1;
+   int32 talkType = 2;
+   string msgBodyOrAudioUrl = 3;
+}
+message ResTestGetGoods {
+   int32 status = 1;
+}
+message ResTestLogicCmdEcho {
+   string content = 1;
+}
+message ResTestUpdateGoods {
+   int32 status = 1;
+}
+message ResUpdateMailMsg {
+   int32 status = 1;
+}
+message ResUserArrivedSeat {
+   string unick = 1;
+   int32 usex = 2;
+   int32 uface = 3;
+   int32 seatId = 4;
+   int32 playInRoomState = 5;
+}
+message ResUserExitSeat {
+   int32 seatId = 1;
+}
+message ResUserLogin {
+   int32 status = 1;
+   AccountInfo uinfo = 2;
+}
+message SyncStatusData {
+   int32 status = 1;
+}
+message TaskItem {
+   int32 status = 1;
+   string taskDesic = 2;
+   int32 typeId = 3;
+}

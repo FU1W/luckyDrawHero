@@ -1,0 +1,17 @@
+<div id="r">
+    <div class="f">
+        <ui-label slot="label">Proto文件目录</ui-label>
+        <div slot="content" class="c">
+            <ui-input :value="input" readonly></ui-input>
+            <ui-button @confirm="select_input">选择目录</ui-button>
+        </div>
+        <ui-label slot="label">生成代码目录</ui-label>
+        <div slot="content" class="c">
+            <ui-input :value="output" readonly></ui-input>
+            <ui-button @confirm="select_output">选择目录</ui-button>
+        </div>
+        <div class="b">
+            <ui-button @confirm="execute">生成代码</ui-button>
+        </div>
+    </div>
+</div>

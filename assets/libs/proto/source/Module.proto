@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+enum Module {
+    GameLogic1 = 1;
+    GameLogic2 = 2;
+    AUTH = 101;
+    PLAYER = 102;
+    SCENE = 103;
+    ACTIVITY = 104;
+    SKILL = 105;
+    CHAT = 106;
+    LADDER = 501;
+    Net = 1001;
+}

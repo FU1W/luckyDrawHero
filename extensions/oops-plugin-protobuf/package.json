@@ -1,0 +1,45 @@
+{
+    "name": "oops-plugin-protobuf",
+    "version": "1.0.2",
+    "package_version": 2,
+    "description": "Protbuf协议的Proto文件生成Ts脚本",
+    "author": "FranOvO",
+    "main": "main.js",
+    "contributions": {
+        "messages": {
+            "open-panel": {
+                "methods": [
+                    "openPanel"
+                ]
+            }
+        },
+        "menu": [
+            {
+                "path": "i18n:i18n:oops-plugin-protobuf.name",
+                "label": "i18n:oops-plugin-protobuf.title",
+                "message": "open-panel"
+            }
+        ]
+    },
+    "panels": {
+        "default": {
+            "title": "i18n:oops-plugin-protobuf.title",
+            "main": "./panel/index.js",
+            "size": {
+                "min-width": 500,
+                "min-height": 240,
+                "width": 500,
+                "height": 240
+            }
+        }
+    },
+    "dependencies": {
+        "chokidar": "^3.4.1",
+        "fix-path": "^3.0.0",
+        "protobufjs": "^6.10.1"
+    },
+    "scripts": {
+        "build": "tsc -b",
+        "watch": "tsc -w"
+    }
+}

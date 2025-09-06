@@ -1,0 +1,16 @@
+{
+  "name": "CocosClient",
+  "uuid": "83d9a187-c9b2-4f9d-87f6-fb8a917ae395",
+  "creator": {
+    "version": "3.8.7",
+    "registry": {
+      "remote": {}
+    },
+    "dependencies": {
+      "plugin-import-2x": "1.1.10"
+    }
+  },
+  "dependencies": {
+    "crypto-es": "^2.1.0"
+  }
+}
